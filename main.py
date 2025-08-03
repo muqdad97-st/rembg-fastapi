@@ -5,6 +5,10 @@ from io import BytesIO
 
 app = FastAPI()
 
+@app.get("/")
+def home():
+    return {"message": "🎉 Rembg FastAPI server is live!"}
+
 @app.post("/remove")
 async def remove_bg(file: UploadFile = File(...)):
     input_image = await file.read()
